@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, Github, LinkedinIcon } from 'lucide-react'
+import emailjs from 'emailjs-com'
 import XIcon from './XIcon'
 
 const Contact = () => {
@@ -11,6 +12,12 @@ const Contact = () => {
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('') // 'success' or 'error'
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("T69-yhXusjlYu7_FJ")
+  }, [])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -23,14 +30,34 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('')
     
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData)
-      setFormData({ name: '', email: '', subject: '', message: '' })
+    try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        title: formData.subject,
+        message: formData.message,
+        to_email: 'dipanshukumar93@gmail.com'
+      }
+
+      const result = await emailjs.send(
+        'service_vfjnfxp', // EmailJS service ID
+        'template_fxouafx', // EmailJS template ID
+        templateParams,
+        'T69-yhXusjlYu7_FJ' // EmailJS public key
+      )
+
+      if (result.status === 200) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      }
+    } catch (error) {
+      console.error('Email send error:', error)
+      setSubmitStatus('error')
+    } finally {
       setIsSubmitting(false)
-      alert('Thank you for your message! I will get back to you soon.')
-    }, 1000)
+    }
   }
 
   const contactInfo = [
@@ -210,6 +237,18 @@ const Contact = () => {
                 />
               </div>
 
+              {submitStatus === 'success' && (
+                <div className="success-message">
+                  Thank you for your message! I will get back to you soon.
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="error-message">
+                  Sorry, there was an error sending your message. Please try again or contact me directly.
+                </div>
+              )}
+              
               <button 
                 type="submit" 
                 className="btn btn-primary submit-btn"
