@@ -28,8 +28,8 @@ A beautiful, responsive portfolio website built with React, Vite, and Framer Mot
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/dipanshukumar/portfolio.git
-cd portfolio
+git clone https://github.com/dipanshukumar/dipanshukumar.git
+cd dipanshukumar
 ```
 
 2. Install dependencies:
