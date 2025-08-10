@@ -18,12 +18,12 @@ const Hero = () => {
           </h1>
           
           <h2 className="hero-subtitle">
-            Senior Software Engineer
+            Senior Frontend Developer & Software Engineer
           </h2>
           
           <p className="hero-description">
-            Experienced software engineer specializing in React.js, JavaScript, and modern web technologies.
-            Passionate about creating scalable, user-centered digital experiences.
+            I am an experienced frontend developer and software engineer specializing in React.js, Next.js, TypeScript, JavaScript, HTML5, CSS3, and modern frontend technologies.
+            Passionate about creating responsive, accessible, and high-performance web applications with excellent user experience.
           </p>
 
           <div className="hero-buttons">

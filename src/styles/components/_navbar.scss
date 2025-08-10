@@ -78,6 +78,8 @@
     font-size: inherit;
     font-weight: inherit;
     font-family: inherit;
+    z-index: 1001;
+    position: relative;
     
     &:hover {
       background: rgba(255, 255, 255, 0.3);
@@ -102,6 +104,8 @@
     display: none;
     cursor: pointer;
     color: $text-primary;
+    z-index: 1000;
+    position: relative;
   }
 }
 
@@ -160,10 +164,26 @@
       box-shadow: 0 4px 20px $shadow-light;
       width: 100%;
       box-sizing: border-box;
+      z-index: 999;
+      pointer-events: none;
       
       &.active {
         transform: translateY(0);
         opacity: 1;
+        pointer-events: auto;
+      }
+      
+      .nav-link {
+        pointer-events: auto;
+        width: 100%;
+        text-align: center;
+        padding: $spacing-md;
+        margin: $spacing-sm 0;
+        border-radius: $border-radius-md;
+        
+        &:hover {
+          background: rgba(102, 126, 234, 0.1);
+        }
       }
     }
     
@@ -187,6 +207,19 @@
     
     .nav-logo .logo-text {
       font-size: 1.2rem;
+    }
+    
+    .nav-toggle {
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .theme-toggle {
+      min-width: 44px;
+      min-height: 44px;
     }
   }
 }

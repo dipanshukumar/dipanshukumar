@@ -35,7 +35,7 @@ const Footer = () => {
         >
           <div className="footer-section">
             <h3>Dipanshu Kumar</h3>
-            <p>Senior Software Engineer passionate about creating amazing digital experiences.</p>
+            <p>I am a Senior Frontend Developer and Software Engineer passionate about creating responsive, accessible, and high-performance web applications with amazing user experience.</p>
           </div>
 
           <div className="footer-section">

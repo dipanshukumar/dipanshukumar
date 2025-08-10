@@ -37,9 +37,9 @@ const About = () => {
           >
             <h3>Who I Am</h3>
             <p>
-              I'm a Senior Software Engineer with more than 6 years of experience in developing 
-              modern web applications. I specialize in React.js, JavaScript, HTML, CSS, Next.js and TypeScript, 
-              with a strong focus on creating scalable, user-centered digital experiences.
+              I am a Senior Frontend Developer and Software Engineer with more than 6 years of experience in developing 
+              modern frontend applications and responsive web interfaces. I specialize in React.js, JavaScript, HTML5, CSS3, Next.js and TypeScript, 
+              with a strong focus on creating responsive, accessible, and high-performance frontend solutions with excellent user experience.
             </p>
             
             <p>
