@@ -1,0 +1,217 @@
+@import '../base/variables';
+@import '../utils/mixins';
+
+// Projects Section
+.projects {
+  @include glass-effect;
+  color: $text-primary;
+  
+  .project-filters {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-2xl;
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    padding: $spacing-sm $spacing-lg;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    background: transparent;
+    color: #667eea;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all $transition-normal;
+    font-weight: 500;
+    
+    &:hover,
+    &.active {
+      background: #667eea;
+      color: $text-white;
+      border-color: #667eea;
+    }
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: $spacing-xl;
+  }
+  
+  .project-card {
+    @include glass-effect(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: 0 4px 20px $shadow-light;
+    transition: all $transition-normal;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    &.featured {
+      border: 2px solid #667eea;
+    }
+  }
+  
+  .project-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-normal;
+    }
+    
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+  
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    @include flex-center;
+    opacity: 0;
+    transition: opacity $transition-normal;
+  }
+  
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+  
+  .project-links {
+    display: flex;
+    gap: $spacing-md;
+    a{
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+  }
+  
+  .project-link {
+    padding: $spacing-sm $spacing-md;
+    background: rgba(255, 255, 255, 0.2);
+    color: $text-white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all $transition-normal;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+  }
+  
+  .featured-badge {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-md;
+    background: #667eea;
+    color: $text-white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .project-content {
+    padding: $spacing-lg;
+    
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .project-description {
+      color: #666;
+      margin-bottom: $spacing-md;
+      line-height: 1.6;
+    }
+    
+    .project-technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+    }
+    
+    .technology-tag {
+      background: rgba(102, 126, 234, 0.1);
+      color: #667eea;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+  
+  .projects-cta {
+    text-align: center;
+    margin-top: $spacing-2xl;
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: $spacing-lg;
+      color: #666;
+    }
+  }
+}
+
+// Dark mode projects
+.dark-mode .projects {
+  @include glass-effect(rgba(15, 15, 35, 0.95), var(--border-color));
+  color: var(--text-primary);
+  
+  .filter-btn {
+    border: 2px solid rgba(102, 126, 234, 0.5);
+    color: #667eea;
+    
+    &:hover,
+    &.active {
+      background: #667eea;
+      color: var(--text-primary);
+      border-color: #667eea;
+    }
+  }
+  
+  .project-description {
+    color: var(--text-secondary);
+  }
+  
+  .technology-tag {
+    background: rgba(102, 126, 234, 0.2);
+    color: #667eea;
+  }
+  
+  .projects-cta {
+    p {
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.dark-mode .project-card {
+  @include glass-effect(rgba(15, 15, 35, 0.9), var(--border-color));
+}
+
+// Responsive projects
+@include responsive(md) {
+  .projects .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projects .project-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,69 @@
+// Import base styles
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/animations';
+
+// Import utilities
+@import 'utils/mixins';
+
+// Import components
+@import 'components/loading';
+@import 'components/navbar';
+@import 'components/hero';
+@import 'components/about';
+@import 'components/skills';
+@import 'components/projects';
+@import 'components/contact';
+@import 'components/footer';
+
+// Global section styles
+section {
+  padding: 5rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: $spacing-md;
+  @include gradient-text;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Dark mode global styles
+.dark-mode {
+  --bg-primary: #{$dark-bg-primary};
+  --bg-secondary: #{$dark-bg-secondary};
+  --bg-tertiary: #{$dark-bg-tertiary};
+  --text-primary: #{$dark-text-primary};
+  --text-secondary: #{$dark-text-secondary};
+  --text-muted: #{$dark-text-muted};
+  --border-color: #{$dark-border};
+  --shadow-color: #{$dark-shadow};
+  
+  body {
+    background: linear-gradient(135deg, $dark-bg-primary 0%, $dark-bg-secondary 50%, $dark-bg-tertiary 100%);
+    color: var(--text-primary);
+  }
+  
+  .section-subtitle {
+    color: var(--text-secondary);
+  }
+}
+
+// Responsive design
+@include responsive(md) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
