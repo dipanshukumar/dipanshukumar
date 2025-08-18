@@ -45,6 +45,7 @@ const Navbar = () => {
               key={item.id}
               className="nav-link"
               onClick={() => scrollToSection(item.id)}
+              aria-label={`Navigate to ${item.label.toLowerCase()} section`}
             >
               {item.label}
             </button>
@@ -59,9 +60,14 @@ const Navbar = () => {
           >
             {isDarkMode ? <LightMode sx={{ fontSize: 20 }} /> : <DarkMode sx={{ fontSize: 20 }} />}
           </button>
-          <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
+          <button 
+            className="nav-toggle" 
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isOpen}
+          >
             {isOpen ? <Close sx={{ fontSize: 24 }} /> : <Menu sx={{ fontSize: 24 }} />}
-          </div>
+          </button>
         </div>
       </div>
     </nav>

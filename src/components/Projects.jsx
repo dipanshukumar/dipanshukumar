@@ -130,7 +130,7 @@ const Projects = () => {
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
                   <div className="project-links">
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`View live demo of ${project.title} project`}>
                       <Visibility sx={{ fontSize: 20 }} />
                       <span>Live Demo</span>
                     </a>
@@ -161,7 +161,7 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <p>Interested in working together?</p>
-          <a href="#contact" className="btn btn-primary">
+          <a href="#contact" className="btn btn-primary" aria-label="Navigate to contact section to discuss project collaboration">
             Let's Talk
           </a>
         </motion.div>

@@ -41,11 +41,11 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul className="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#home" aria-label="Navigate to home section">Home</a></li>
+              <li><a href="#about" aria-label="Navigate to about section">About</a></li>
+              <li><a href="#skills" aria-label="Navigate to skills section">Skills</a></li>
+              <li><a href="#projects" aria-label="Navigate to projects section">Projects</a></li>
+              <li><a href="#contact" aria-label="Navigate to contact section">Contact</a></li>
             </ul>
           </div>
 
@@ -59,6 +59,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"
+                  aria-label={`Visit ${social.name} profile`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}

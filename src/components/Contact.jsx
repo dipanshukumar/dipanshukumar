@@ -143,7 +143,7 @@ const Contact = () => {
                   <div className="contact-text">
                     <h4>{info.title}</h4>
                     {info.link ? (
-                      <a href={info.link} className="contact-link">
+                      <a href={info.link} className="contact-link" aria-label={`${info.title}: ${info.value}`}>
                         {info.value}
                       </a>
                     ) : (
@@ -164,6 +164,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="social-link"
+                    aria-label={`Visit ${social.name} profile`}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
