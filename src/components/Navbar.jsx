@@ -12,7 +12,8 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    // Use passive listener for better performance and to avoid warnings
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
