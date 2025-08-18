@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, LinkedinIcon, Heart } from 'lucide-react'
+import { GitHub, LinkedIn, Favorite } from '@mui/icons-material'
 import XIcon from './XIcon'
 
 const Footer = () => {
@@ -9,12 +9,12 @@ const Footer = () => {
     {
       name: "GitHub",
       url: "https://github.com/dipanshukumar",
-      icon: <Github size={20} />
+      icon: <GitHub sx={{ fontSize: 20 }} />
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/dipanshu-kumar-449b48133/",
-      icon: <LinkedinIcon size={20} />
+      icon: <LinkedIn sx={{ fontSize: 20 }} />
     },
     {
       name: "X",
@@ -81,7 +81,7 @@ const Footer = () => {
         >
           <div className="footer-line"></div>
           <p className="copyright">
-            © {currentYear} Dipanshu Kumar. Made with <Heart size={16} className="heart-icon" /> and React.
+            © {currentYear} Dipanshu Kumar. Made with <Favorite sx={{ fontSize: 16 }} className="heart-icon" /> and React.
           </p>
         </motion.div>
       </div>

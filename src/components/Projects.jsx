@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Eye } from 'lucide-react'
+import { Visibility } from '@mui/icons-material'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -131,7 +131,7 @@ const Projects = () => {
                 <div className="project-overlay">
                   <div className="project-links">
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link">
-                      <Eye size={20} />
+                      <Visibility sx={{ fontSize: 20 }} />
                       <span>Live Demo</span>
                     </a>
                     

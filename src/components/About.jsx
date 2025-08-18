@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Download } from 'lucide-react'
+import { Download } from '@mui/icons-material'
 
 const About = () => {
   const downloadResume = () => {
@@ -63,7 +63,7 @@ const About = () => {
             </dl>
 
             <button className="btn btn-primary" onClick={downloadResume} aria-label="Download Resume">
-              <Download size={20} />
+              <Download sx={{ fontSize: 20 }} />
               Download Resume
             </button>
           </motion.article>

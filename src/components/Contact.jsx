@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, Github, LinkedinIcon } from 'lucide-react'
+import { Email, Phone, LocationOn, Send, GitHub, LinkedIn } from '@mui/icons-material'
 import emailjs from 'emailjs-com'
 import XIcon from './XIcon'
 
@@ -62,19 +62,19 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: <Mail size={24} />,
+      icon: <Email sx={{ fontSize: 24 }} />,
       title: "Email",
       value: "dipanshukumar93@gmail.com",
       link: "mailto:dipanshukumar93@gmail.com"
     },
     {
-      icon: <Phone size={24} />,
+      icon: <Phone sx={{ fontSize: 24 }} />,
       title: "Phone",
       value: "+91 87095 92699",
       link: "tel:+918709592699"
     },
     {
-      icon: <MapPin size={24} />,
+      icon: <LocationOn sx={{ fontSize: 24 }} />,
       title: "Location",
       value: "Ramgarh, Jharkhand, India",
       link: null
@@ -85,12 +85,12 @@ const Contact = () => {
     {
       name: "GitHub",
       url: "https://github.com/dipanshukumar",
-      icon: <Github size={24} />
+      icon: <GitHub sx={{ fontSize: 24 }} />
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/dipanshu-kumar-449b48133/",
-      icon: <LinkedinIcon size={24} />
+      icon: <LinkedIn sx={{ fontSize: 24 }} />
     },
     {
       name: "X",
@@ -261,7 +261,7 @@ const Contact = () => {
                   </>
                 ) : (
                   <>
-                    <Send size={20} />
+                    <Send sx={{ fontSize: 20 }} />
                     Send Message
                   </>
                 )}

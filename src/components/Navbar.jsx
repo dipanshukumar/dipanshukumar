@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, Close, LightMode, DarkMode } from '@mui/icons-material'
 import { useTheme } from '../context/ThemeContext'
 
 const Navbar = () => {
@@ -57,10 +57,10 @@ const Navbar = () => {
             onClick={toggleTheme}
             aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {isDarkMode ? <LightMode sx={{ fontSize: 20 }} /> : <DarkMode sx={{ fontSize: 20 }} />}
           </button>
           <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <Close sx={{ fontSize: 24 }} /> : <Menu sx={{ fontSize: 24 }} />}
           </div>
         </div>
       </div>

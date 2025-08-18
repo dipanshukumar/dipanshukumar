@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowDown, Github, LinkedinIcon, Mail } from 'lucide-react'
+import { KeyboardArrowDown, GitHub, LinkedIn, Email } from '@mui/icons-material'
 
 const Hero = () => {
   const scrollToSection = (sectionId) => {
@@ -47,13 +47,13 @@ const Hero = () => {
             aria-label="Social Media Links"
           >
             <a href="https://github.com/dipanshukumar" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub Profile">
-              <Github size={24} />
+              <GitHub sx={{ fontSize: 24 }} />
             </a>
             <a href="https://www.linkedin.com/in/dipanshu-kumar-449b48133/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn Profile">
-              <LinkedinIcon size={24} />
+              <LinkedIn sx={{ fontSize: 24 }} />
             </a>
             <a href="mailto:dipanshukumar93@gmail.com" className="social-link" aria-label="Email Contact">
-              <Mail size={24} />
+              <Email sx={{ fontSize: 24 }} />
             </a>
           </nav>
         </div>
@@ -63,7 +63,7 @@ const Hero = () => {
           onClick={() => scrollToSection('about')}
           aria-label="Scroll to about section"
         >
-          <ArrowDown size={24} />
+          <KeyboardArrowDown sx={{ fontSize: 24 }} />
           <span>Scroll Down</span>
         </button>
       </div>
