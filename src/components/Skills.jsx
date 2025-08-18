@@ -21,6 +21,8 @@ const Skills = () => {
         { name: "SCSS", level: 95 },
         { name: "Bootstrap", level: 90 },
         { name: "JSX", level: 90 },
+        { name: "Material UI", level: 90 },
+        { name: "Tailwind CSS", level: 80 }
       ]
     },
     {
