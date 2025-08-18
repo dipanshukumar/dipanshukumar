@@ -16,11 +16,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-/* Font loading optimization */
-@font-face {
-  font-family: 'Inter';
-  font-display: swap;
-}
 
 /* Font loading state management */
 .fonts-loaded {
@@ -36,9 +31,6 @@
 }
 
 /* Ensure smooth font transitions */
-* {
-  font-display: swap;
-}
 
 * {
   margin: 0;
