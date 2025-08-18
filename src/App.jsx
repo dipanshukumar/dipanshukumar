@@ -35,9 +35,6 @@ function App() {
     <ThemeProvider>
       <Router>
         <div className="App">
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
           <Navbar />
           <main id="main-content">
             <Hero />
