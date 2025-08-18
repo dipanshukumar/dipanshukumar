@@ -65,26 +65,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Optimized Google Fonts loading -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
-    </noscript>
+    <!-- Optimized Google Fonts loading - bfcache friendly -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
     
-    <!-- Font loading fallback -->
+    <!-- Font loading optimization - bfcache friendly -->
     <script>
-      // Font loading optimization
+      // Font loading optimization without any unload handlers
       if ('fonts' in document) {
-        Promise.all([
-          document.fonts.load('300 1em Inter'),
-          document.fonts.load('400 1em Inter'),
-          document.fonts.load('500 1em Inter'),
-          document.fonts.load('600 1em Inter'),
-          document.fonts.load('700 1em Inter'),
-          document.fonts.load('800 1em Inter')
-        ]).then(() => {
-          document.documentElement.classList.add('fonts-loaded');
-        });
+        // Use requestIdleCallback for better performance and bfcache compatibility
+        const loadFonts = () => {
+          Promise.all([
+            document.fonts.load('300 1em Inter'),
+            document.fonts.load('400 1em Inter'),
+            document.fonts.load('500 1em Inter'),
+            document.fonts.load('600 1em Inter'),
+            document.fonts.load('700 1em Inter'),
+            document.fonts.load('800 1em Inter')
+          ]).then(() => {
+            document.documentElement.classList.add('fonts-loaded');
+          }).catch(() => {
+            // Fallback if font loading fails
+            document.documentElement.classList.add('fonts-fallback');
+          });
+        };
+        
+        // Use requestIdleCallback if available, otherwise setTimeout
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadFonts);
+        } else {
+          setTimeout(loadFonts, 1);
+        }
       }
     </script>
     
