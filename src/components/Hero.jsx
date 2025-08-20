@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { KeyboardArrowDown, GitHub, LinkedIn, Email } from '@mui/icons-material'
 
 const Hero = () => {
