@@ -1,10 +1,7 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Visibility } from '@mui/icons-material'
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all')
-
   const projects = [
     {
       id: 1,
@@ -68,14 +65,6 @@ const Projects = () => {
     }
   ]
 
-  const filters = [
-    { id: 'all', label: 'All Projects' }
-  ]
-
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter)
-
   return (
     <section id="projects" className="projects">
       <div className="container">
@@ -91,31 +80,13 @@ const Projects = () => {
         </motion.div>
 
         <motion.div
-          className="project-filters"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {filters.map((filter) => (
-            <button
-              key={filter.id}
-              className={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`}
-              onClick={() => setActiveFilter(filter.id)}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </motion.div>
-
-        <motion.div
           className="projects-grid"
           layout
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               className={`project-card ${project.featured ? 'featured' : ''}`}
