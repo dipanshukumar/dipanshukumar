@@ -1,69 +1,59 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Visibility } from '@mui/icons-material'
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "London Stone and Cheshire Paving",
-      description: "Complete redesign and optimization of UK client's website including checkout, about us, and product listings. Built with HTML, CSS, JavaScript, Figma, and AWS S3.",
-      image: "/project-images/londonstone.png",
-      technologies: ["AWS", "HTML/CSS", "JavaScript", "Figma"],
-      category: "frontend",
-      liveUrl: "https://www.londonstone.co.uk/",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Telstra Web App Migration",
-      description: "Migrated legacy Drupal site to React.js & Next.js. Built a micro frontend using webpack Module Federation and created multiplepages and integrated Cypress and Jest testing.",
-      image: "/project-images/telstra.png",
-      technologies: ["React.js", "Next.js", "Auth0", "TypeScript", "Cypress", "HTML/CSS", "AWS"],
-      category: "frontend",
-      liveUrl: "https://dev.telstra.com/",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Extramarks Platform",
-      description: "Contributed to critical modules of the Extramarks educational platform. Built responsive UI with React, Redux, HTML5, CSS3, and AWS integration.",
-      image: "/project-images/extramarks.png",
-      technologies: ["React", "Redux", "HTML5", "CSS3", "AWS", "JavaScript"],
-      category: "frontend",
-      liveUrl: "https://www.extramarks.com/",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "GEM Government Marketplace",
-      description: "Built features for the Indian Government's GEM (Government e-Marketplace) platform. Delivered e-commerce solutions for government procurement.",
-      image: "/project-images/gem.png",
-      technologies: ["Angular", "JavaScript", "HTML/CSS"],
-      category: "frontend",
-      liveUrl: "https://gem.gov.in/",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "E-commerce Portals",
-      description: "Delivered e-commerce platforms for UAE clients: Sony UAE, Jumbo Electronics, Axiom Telecom. Built complete shopping experiences with modern web technologies.",
-      image: "/project-images/hidesign.png",
-      technologies: ["React", "JavaScript", "HTML/CSS", "AWS"],
-      category: "frontend",
-      liveUrl: "https://hidesign.com/",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Crossword E-commerce",
-      description: "Developed e-commerce platform for Crossword bookstore. Built responsive design and shopping cart functionality with modern web technologies.",
-      image: "/project-images/crossword.png",
-      technologies: ["React", "JavaScript", "Bootstrap", "HTML/CSS"],
-      category: "frontend",
-      liveUrl: "https://www.crossword.in/",
-      featured: false
+  const [projects, setProjects] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/data/projects.json')
+        if (!response.ok) {
+          throw new Error('Failed to fetch projects data')
+        }
+        const data = await response.json()
+        setProjects(data.projects)
+        setLoading(false)
+      } catch (err) {
+        setError(err.message)
+        setLoading(false)
+      }
     }
-  ]
+
+    fetchProjects()
+  }, [])
+
+  if (loading) {
+    return (
+      <section id="projects" className="projects">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">My Projects</h2>
+            <p className="section-subtitle">Loading projects...</p>
+          </div>
+          <div className="loading-projects">
+            <div className="loader"></div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section id="projects" className="projects">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">My Projects</h2>
+            <p className="section-subtitle">Error loading projects: {error}</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="projects" className="projects">
