@@ -5,7 +5,7 @@ const About = () => {
   const downloadResume = () => {
     // Create a link to download the resume
     const link = document.createElement('a')
-    link.href = '/Dipanshu_Resume.pdf'
+    link.href = '/Dipanshu_Kumar.pdf'
     link.download = 'Dipanshu_Resume.pdf'
     link.target = '_blank'
     document.body.appendChild(link)
