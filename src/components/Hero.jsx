@@ -1,12 +1,17 @@
-import { KeyboardArrowDown, GitHub, LinkedIn, Email } from '@mui/icons-material'
+import {
+  KeyboardArrowDown,
+  GitHub,
+  LinkedIn,
+  Email,
+} from "@mui/icons-material";
 
 const Hero = () => {
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section id="home" className="hero" role="banner" aria-label="Hero Section">
@@ -15,43 +20,60 @@ const Hero = () => {
           <h1 className="hero-title">
             Hi, I'm <span className="highlight">Dipanshu Kumar</span>
           </h1>
-          
+
           <h2 className="hero-subtitle">
             Senior Frontend Developer & Software Engineer
           </h2>
-          
+
           <p className="hero-description">
-            I am an experienced frontend developer and software engineer specializing in React.js, Next.js, TypeScript, JavaScript, HTML5, CSS3, and modern frontend technologies.
-            Passionate about creating responsive, accessible, and high-performance web applications with excellent user experience.
+            I am an experienced frontend developer and software engineer
+            specializing in React.js, Next.js, TypeScript, JavaScript, HTML5,
+            CSS3, and modern frontend technologies. Passionate about creating
+            responsive, accessible, and high-performance web applications with
+            excellent user experience.
           </p>
 
           <div className="hero-buttons">
-            <button 
+            <button
               className="btn btn-primary"
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection("projects")}
               aria-label="View my projects"
             >
               View My Work
             </button>
-            <button 
+            <button
               className="btn btn-secondary"
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               aria-label="Get in touch"
             >
               Get In Touch
             </button>
           </div>
 
-          <nav className="hero-social"
-            aria-label="Social Media Links"
-          >
-            <a href="https://github.com/dipanshukumar" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub Profile">
+          <nav className="hero-social" aria-label="Social Media Links">
+            <a
+              href="https://github.com/dipanshukumar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="GitHub Profile"
+            >
               <GitHub sx={{ fontSize: 24 }} />
             </a>
-            <a href="https://www.linkedin.com/in/dipanshu-kumar-449b48133/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn Profile">
+            <a
+              href="https://www.linkedin.com/in/dipanshu-kumar-449b48133/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="LinkedIn Profile"
+            >
               <LinkedIn sx={{ fontSize: 24 }} />
             </a>
-            <a href="mailto:dipanshukumar93@gmail.com" className="social-link" aria-label="Email Contact">
+            <a
+              href="mailto:dipanshukumar93@gmail.com"
+              className="social-link"
+              aria-label="Email Contact"
+            >
               <Email sx={{ fontSize: 24 }} />
             </a>
           </nav>
@@ -59,7 +81,7 @@ const Hero = () => {
 
         <button
           className="scroll-indicator"
-          onClick={() => scrollToSection('about')}
+          onClick={() => scrollToSection("about")}
           aria-label="Scroll to about section"
         >
           <KeyboardArrowDown sx={{ fontSize: 24 }} />
@@ -67,7 +89,7 @@ const Hero = () => {
         </button>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

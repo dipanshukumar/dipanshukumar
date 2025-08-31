@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { GitHub, LinkedIn, Favorite } from "@mui/icons-material";
 import XIcon from "./XIcon";
 

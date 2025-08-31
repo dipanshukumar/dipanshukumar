@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Visibility } from "@mui/icons-material";
 
 const Projects = () => {

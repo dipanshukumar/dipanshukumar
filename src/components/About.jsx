@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Download } from "@mui/icons-material";
 
 const About = () => {
