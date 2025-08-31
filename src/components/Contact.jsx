@@ -1,103 +1,109 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Email, Phone, LocationOn, Send, GitHub, LinkedIn } from '@mui/icons-material'
-import emailjs from 'emailjs-com'
-import XIcon from './XIcon'
+import { useState, useEffect } from "react";
+import {
+  Email,
+  Phone,
+  LocationOn,
+  Send,
+  GitHub,
+  LinkedIn,
+} from "@mui/icons-material";
+import emailjs from "emailjs-com";
+import XIcon from "./XIcon";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState('') // 'success' or 'error'
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(""); // 'success' or 'error'
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init("T69-yhXusjlYu7_FJ")
-  }, [])
+    emailjs.init("T69-yhXusjlYu7_FJ");
+  }, []);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('')
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("");
+
     try {
       const templateParams = {
         name: formData.name,
         email: formData.email,
         title: formData.subject,
         message: formData.message,
-        to_email: 'dipanshukumar93@gmail.com'
-      }
+        to_email: "dipanshukumar93@gmail.com",
+      };
 
       const result = await emailjs.send(
-        'service_vfjnfxp', // EmailJS service ID
-        'template_fxouafx', // EmailJS template ID
+        "service_vfjnfxp", // EmailJS service ID
+        "template_fxouafx", // EmailJS template ID
         templateParams,
-        'T69-yhXusjlYu7_FJ' // EmailJS public key
-      )
+        "T69-yhXusjlYu7_FJ" // EmailJS public key
+      );
 
       if (result.status === 200) {
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', subject: '', message: '' })
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
       }
     } catch (error) {
-      console.error('Email send error:', error)
-      setSubmitStatus('error')
+      console.error("Email send error:", error);
+      setSubmitStatus("error");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const contactInfo = [
     {
       icon: <Email sx={{ fontSize: 24 }} />,
       title: "Email",
       value: "dipanshukumar93@gmail.com",
-      link: "mailto:dipanshukumar93@gmail.com"
+      link: "mailto:dipanshukumar93@gmail.com",
     },
     {
       icon: <Phone sx={{ fontSize: 24 }} />,
       title: "Phone",
       value: "+91 87095 92699",
-      link: "tel:+918709592699"
+      link: "tel:+918709592699",
     },
     {
       icon: <LocationOn sx={{ fontSize: 24 }} />,
       title: "Location",
       value: "Ramgarh, Jharkhand, India",
-      link: null
-    }
-  ]
+      link: null,
+    },
+  ];
 
   const socialLinks = [
     {
       name: "GitHub",
       url: "https://github.com/dipanshukumar",
-      icon: <GitHub sx={{ fontSize: 24 }} />
+      icon: <GitHub sx={{ fontSize: 24 }} />,
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/dipanshu-kumar-449b48133/",
-      icon: <LinkedIn sx={{ fontSize: 24 }} />
+      icon: <LinkedIn sx={{ fontSize: 24 }} />,
     },
     {
       name: "X",
       url: "https://x.com/web_developer31",
-      icon: <XIcon size={24} />
-    }
-  ]
+      icon: <XIcon size={24} />,
+    },
+  ];
 
   return (
     <section id="contact" className="contact">
@@ -110,7 +116,9 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <h2 className="section-title">Get In Touch</h2>
-          <p className="section-subtitle">Let's work together on your next project</p>
+          <p className="section-subtitle">
+            Let's work together on your next project
+          </p>
         </motion.div>
 
         <div className="contact-content">
@@ -123,8 +131,9 @@ const Contact = () => {
           >
             <h3>Let's Connect</h3>
             <p>
-              I'm always interested in hearing about new opportunities and exciting projects. 
-              Whether you have a question or just want to say hi, feel free to reach out!
+              I'm always interested in hearing about new opportunities and
+              exciting projects. Whether you have a question or just want to say
+              hi, feel free to reach out!
             </p>
 
             <div className="contact-details">
@@ -137,13 +146,15 @@ const Contact = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="contact-icon">
-                    {info.icon}
-                  </div>
+                  <div className="contact-icon">{info.icon}</div>
                   <div className="contact-text">
                     <h4>{info.title}</h4>
                     {info.link ? (
-                      <a href={info.link} className="contact-link" aria-label={`${info.title}: ${info.value}`}>
+                      <a
+                        href={info.link}
+                        className="contact-link"
+                        aria-label={`${info.title}: ${info.value}`}
+                      >
                         {info.value}
                       </a>
                     ) : (
@@ -238,20 +249,21 @@ const Contact = () => {
                 />
               </div>
 
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <div className="success-message">
                   Thank you for your message! I will get back to you soon.
                 </div>
               )}
-              
-              {submitStatus === 'error' && (
+
+              {submitStatus === "error" && (
                 <div className="error-message">
-                  Sorry, there was an error sending your message. Please try again or contact me directly.
+                  Sorry, there was an error sending your message. Please try
+                  again or contact me directly.
                 </div>
               )}
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 className="btn btn-primary submit-btn"
                 disabled={isSubmitting}
               >
@@ -272,7 +284,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

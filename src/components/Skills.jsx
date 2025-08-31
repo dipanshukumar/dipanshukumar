@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-
 const Skills = () => {
   const skillCategories = [
     {
@@ -11,8 +9,8 @@ const Skills = () => {
         { name: "Next.js", level: 70 },
         { name: "Angular", level: 55 },
         { name: "Node.js", level: 50 },
-        { name: "React Native", level: 40 }
-      ]
+        { name: "React Native", level: 40 },
+      ],
     },
     {
       category: "Frontend & Styling",
@@ -22,8 +20,8 @@ const Skills = () => {
         { name: "Bootstrap", level: 90 },
         { name: "JSX", level: 90 },
         { name: "Material UI", level: 90 },
-        { name: "Tailwind CSS", level: 80 }
-      ]
+        { name: "Tailwind CSS", level: 80 },
+      ],
     },
     {
       category: "Tools & Platforms",
@@ -33,8 +31,8 @@ const Skills = () => {
         { name: "Webpack", level: 70 },
         { name: "Figma", level: 90 },
         { name: "GitHub Actions", level: 55 },
-        { name: "Redux Toolkit", level: 80 }
-      ]
+        { name: "Redux Toolkit", level: 80 },
+      ],
     },
     {
       category: "Testing & Methodologies",
@@ -43,10 +41,10 @@ const Skills = () => {
         { name: "Cypress", level: 70 },
         { name: "React Testing Library", level: 70 },
         { name: "Agile/Scrum", level: 80 },
-        { name: "Babel", level: 70 }
-      ]
-    }
-  ]
+        { name: "Babel", level: 70 },
+      ],
+    },
+  ];
 
   return (
     <section id="skills" className="skills">
@@ -114,21 +112,30 @@ const Skills = () => {
           <div className="summary-grid">
             <div className="summary-item">
               <h4>Modern Web Development</h4>
-              <p>Expert in React.js, JavaScript, Next.js, HTML, CSS, SCSS with focus on scalable applications.</p>
+              <p>
+                Expert in React.js, JavaScript, Next.js, HTML, CSS, SCSS with
+                focus on scalable applications.
+              </p>
             </div>
             <div className="summary-item">
               <h4>Agile Leadership</h4>
-              <p>Leading agile processes and implementing reusable, scalable codebases.</p>
+              <p>
+                Leading agile processes and implementing reusable, scalable
+                codebases.
+              </p>
             </div>
             <div className="summary-item">
               <h4>Client Delivery</h4>
-              <p>Delivered solutions for major clients including Telstra and Government projects.</p>
+              <p>
+                Delivered solutions for major clients including Telstra and
+                Government projects.
+              </p>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;

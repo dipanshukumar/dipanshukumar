@@ -1,27 +1,26 @@
-import { motion } from 'framer-motion'
-import { GitHub, LinkedIn, Favorite } from '@mui/icons-material'
-import XIcon from './XIcon'
+import { GitHub, LinkedIn, Favorite } from "@mui/icons-material";
+import XIcon from "./XIcon";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
       name: "GitHub",
       url: "https://github.com/dipanshukumar",
-      icon: <GitHub sx={{ fontSize: 20 }} />
+      icon: <GitHub sx={{ fontSize: 20 }} />,
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/dipanshu-kumar-449b48133/",
-      icon: <LinkedIn sx={{ fontSize: 20 }} />
+      icon: <LinkedIn sx={{ fontSize: 20 }} />,
     },
     {
       name: "X",
       url: "https://x.com/web_developer31",
-      icon: <XIcon size={20} />
-    }
-  ]
+      icon: <XIcon size={20} />,
+    },
+  ];
 
   return (
     <footer className="footer">
@@ -35,17 +34,41 @@ const Footer = () => {
         >
           <div className="footer-section">
             <h3>Dipanshu Kumar</h3>
-            <p>I am a Senior Frontend Developer and Software Engineer passionate about creating responsive, accessible, and high-performance web applications with amazing user experience.</p>
+            <p>
+              I am a Senior Frontend Developer and Software Engineer passionate
+              about creating responsive, accessible, and high-performance web
+              applications with amazing user experience.
+            </p>
           </div>
 
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul className="footer-links">
-              <li><a href="#home" aria-label="Navigate to home section">Home</a></li>
-              <li><a href="#about" aria-label="Navigate to about section">About</a></li>
-              <li><a href="#skills" aria-label="Navigate to skills section">Skills</a></li>
-              <li><a href="#projects" aria-label="Navigate to projects section">Projects</a></li>
-              <li><a href="#contact" aria-label="Navigate to contact section">Contact</a></li>
+              <li>
+                <a href="#home" aria-label="Navigate to home section">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#about" aria-label="Navigate to about section">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#skills" aria-label="Navigate to skills section">
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a href="#projects" aria-label="Navigate to projects section">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#contact" aria-label="Navigate to contact section">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -82,12 +105,13 @@ const Footer = () => {
         >
           <div className="footer-line"></div>
           <p className="copyright">
-            © {currentYear} Dipanshu Kumar. Made with <Favorite sx={{ fontSize: 16 }} className="heart-icon" /> and React.
+            © {currentYear} Dipanshu Kumar. Made with{" "}
+            <Favorite sx={{ fontSize: 16 }} className="heart-icon" /> and React.
           </p>
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

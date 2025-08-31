@@ -1,20 +1,24 @@
-import { motion } from 'framer-motion'
-import { Download } from '@mui/icons-material'
+import { Download } from "@mui/icons-material";
 
 const About = () => {
   const downloadResume = () => {
     // Create a link to download the resume
-    const link = document.createElement('a')
-    link.href = '/Dipanshu_Kumar.pdf'
-    link.download = 'Dipanshu_Resume.pdf'
-    link.target = '_blank'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+    const link = document.createElement("a");
+    link.href = "/Dipanshu_Kumar.pdf";
+    link.download = "Dipanshu_Resume.pdf";
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
-    <section id="about" className="about" role="region" aria-label="About Section">
+    <section
+      id="about"
+      className="about"
+      role="region"
+      aria-label="About Section"
+    >
       <div className="container">
         <motion.header
           className="section-header"
@@ -37,15 +41,21 @@ const About = () => {
           >
             <h3>Who I Am</h3>
             <p>
-              I am a Senior Frontend Developer and Software Engineer with more than 6 years of experience in developing 
-              modern frontend applications and responsive web interfaces. I specialize in React.js, JavaScript, HTML5, CSS3, Next.js and TypeScript, 
-              with a strong focus on creating responsive, accessible, and high-performance frontend solutions with excellent user experience.
+              I am a Senior Frontend Developer and Software Engineer with more
+              than 6 years of experience in developing modern frontend
+              applications and responsive web interfaces. I specialize in
+              React.js, JavaScript, HTML5, CSS3, Next.js and TypeScript, with a
+              strong focus on creating responsive, accessible, and
+              high-performance frontend solutions with excellent user
+              experience.
             </p>
-            
+
             <p>
-              Recently worked at Smart Working Solutions, I lead agile processes and 
-              implement reusable, scalable codebases. My journey includes delivering optimized solutions for clients 
-              like London Stone, Telstra, Extramarks, many more Indian Clients, and a Government's Project GEM.
+              Recently worked at Smart Working Solutions, I lead agile processes
+              and implement reusable, scalable codebases. My journey includes
+              delivering optimized solutions for clients like London Stone,
+              Telstra, Extramarks, many more Indian Clients, and a Government's
+              Project GEM.
             </p>
 
             <dl className="about-stats">
@@ -62,7 +72,11 @@ const About = () => {
               </div>
             </dl>
 
-            <button className="btn btn-primary" onClick={downloadResume} aria-label="Download Resume">
+            <button
+              className="btn btn-primary"
+              onClick={downloadResume}
+              aria-label="Download Resume"
+            >
               <Download sx={{ fontSize: 20 }} />
               Download Resume
             </button>
@@ -76,9 +90,9 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="profile-image-container">
-              <img 
-                src="/images/profile-photo.jpg" 
-                alt="Dipanshu Kumar - Senior Software Engineer" 
+              <img
+                src="/images/profile-photo.jpg"
+                alt="Dipanshu Kumar - Senior Software Engineer"
                 className="profile-image"
                 loading="lazy"
               />
@@ -87,7 +101,7 @@ const About = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

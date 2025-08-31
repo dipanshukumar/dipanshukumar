@@ -1,30 +1,29 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Visibility } from '@mui/icons-material'
+import { useState, useEffect } from "react";
+import { Visibility } from "@mui/icons-material";
 
 const Projects = () => {
-  const [projects, setProjects] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('/data/projects.json')
+        const response = await fetch("/data/projects.json");
         if (!response.ok) {
-          throw new Error('Failed to fetch projects data')
+          throw new Error("Failed to fetch projects data");
         }
-        const data = await response.json()
-        setProjects(data.projects)
-        setLoading(false)
+        const data = await response.json();
+        setProjects(data.projects);
+        setLoading(false);
       } catch (err) {
-        setError(err.message)
-        setLoading(false)
+        setError(err.message);
+        setLoading(false);
       }
-    }
+    };
 
-    fetchProjects()
-  }, [])
+    fetchProjects();
+  }, []);
 
   if (loading) {
     return (
@@ -39,7 +38,7 @@ const Projects = () => {
           </div>
         </div>
       </section>
-    )
+    );
   }
 
   if (error) {
@@ -52,7 +51,7 @@ const Projects = () => {
           </div>
         </div>
       </section>
-    )
+    );
   }
 
   return (
@@ -79,7 +78,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className={`project-card ${project.featured ? 'featured' : ''}`}
+              className={`project-card ${project.featured ? "featured" : ""}`}
               layout
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -91,22 +90,31 @@ const Projects = () => {
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
                   <div className="project-links">
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`View live demo of ${project.title} project`}>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      aria-label={`View live demo of ${project.title} project`}
+                    >
                       <Visibility sx={{ fontSize: 20 }} />
                       <span>Live Demo</span>
                     </a>
-                    
                   </div>
                 </div>
-                {project.featured && <span className="featured-badge">Featured</span>}
+                {project.featured && (
+                  <span className="featured-badge">Featured</span>
+                )}
               </div>
-              
+
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="project-technologies">
                   {project.technologies.map((tech) => (
-                    <span key={tech} className="technology-tag">{tech}</span>
+                    <span key={tech} className="technology-tag">
+                      {tech}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -122,13 +130,17 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <p>Interested in working together?</p>
-          <a href="#contact" className="btn btn-primary" aria-label="Navigate to contact section to discuss project collaboration">
+          <a
+            href="#contact"
+            className="btn btn-primary"
+            aria-label="Navigate to contact section to discuss project collaboration"
+          >
             Let's Talk
           </a>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
