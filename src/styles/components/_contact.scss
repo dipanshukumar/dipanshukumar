@@ -5,112 +5,112 @@
 .contact {
   @include glass-effect;
   color: $text-primary;
-  
+
   .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
   }
-  
+
   .contact-info {
     h3 {
       font-size: 2rem;
       margin-bottom: $spacing-md;
-      @include gradient-text;
+      color: $text-primary;
     }
-    
+
     p {
       font-size: 1.1rem;
       color: #666;
       margin-bottom: $spacing-xl;
     }
   }
-  
+
   .contact-details {
     margin-bottom: $spacing-xl;
   }
-  
+
   .contact-item {
     display: flex;
     align-items: center;
     gap: $spacing-md;
     margin-bottom: $spacing-lg;
   }
-  
+
   .contact-icon {
     width: 50px;
     height: 50px;
     @include flex-center;
-    background: $primary-gradient;
+    background: #333;
     border-radius: 50%;
     color: $text-white;
     font-size: 1.2rem;
   }
-  
+
   .contact-text {
     h4 {
       font-size: 1.1rem;
       margin-bottom: 0.25rem;
     }
   }
-  
+
   .contact-link {
-    color: #667eea;
+    color: #333;
     text-decoration: none;
     transition: color $transition-normal;
-    
+
     &:hover {
-      color: #5a67d8;
+      color: #000;
     }
   }
-  
+
   .social-links {
     h4 {
       font-size: 1.2rem;
       margin-bottom: $spacing-md;
     }
   }
-  
+
   .social-grid {
     display: flex;
     gap: $spacing-md;
   }
-  
+
   .social-link {
     width: 50px;
     height: 50px;
     @include flex-center;
-    background: rgba(102, 126, 234, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    color: #667eea;
+    color: #333;
     text-decoration: none;
     transition: all $transition-normal;
-    border: 1px solid rgba(102, 126, 234, 0.2);
-    
+    border: 1px solid rgba(0, 0, 0, 0.2);
+
     &:hover {
-      background: #667eea;
+      background: #333;
       color: $text-white;
       transform: translateY(-3px);
     }
   }
-  
+
   .contact-form {
     @include glass-effect(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
     padding: $spacing-xl;
     border-radius: $border-radius-lg;
     box-shadow: 0 4px 20px $shadow-light;
-    
+
     .form-group {
       margin-bottom: $spacing-lg;
-      
+
       label {
         display: block;
         margin-bottom: $spacing-sm;
         font-weight: 500;
         color: $text-primary;
       }
-      
+
       input,
       textarea {
         width: 100%;
@@ -121,44 +121,45 @@
         transition: all $transition-normal;
         background: rgba(255, 255, 255, 0.9);
         color: $text-primary;
-        
+
         &:focus {
           outline: none;
-          border-color: #667eea;
-          box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+          border-color: #333;
+          box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
         }
-        
+
         &::placeholder {
           color: rgba(0, 0, 0, 0.6);
         }
       }
-      
+
       textarea {
         resize: vertical;
         min-height: 120px;
       }
     }
-    
+
     .submit-btn {
       @include button-base;
-      background: $primary-gradient;
+      background: #000;
       color: $text-white;
       width: 100%;
       justify-content: center;
       @include shimmer-effect;
-      
+
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        background: #333;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       }
-      
+
       &:disabled {
         opacity: 0.6;
         cursor: not-allowed;
       }
     }
   }
-  
+
   .spinner {
     width: 20px;
     height: 20px;
@@ -167,7 +168,7 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
-  
+
   .success-message {
     background: rgba(34, 197, 94, 0.1);
     color: #22c55e;
@@ -178,7 +179,7 @@
     text-align: center;
     font-weight: 500;
   }
-  
+
   .error-message {
     background: rgba(239, 68, 68, 0.1);
     color: #ef4444;
@@ -193,69 +194,96 @@
 
 // Dark mode contact
 .dark-mode .contact {
-  @include glass-effect(rgba(15, 15, 35, 0.95), var(--border-color));
+  @include glass-effect(rgba(0, 0, 0, 0.95), var(--border-color));
   color: var(--text-primary);
-  
+
   .contact-info {
+    h3 {
+      @include gradient-text($primary-gradient-dark);
+    }
+
     p {
       color: var(--text-secondary);
     }
   }
-  
+
   .contact-text {
     h4 {
       color: var(--text-primary);
     }
   }
-  
+
   .contact-link {
-    color: #667eea;
-    
+    color: #fff;
+
     &:hover {
-      color: #5a67d8;
+      color: #ccc;
     }
   }
-  
+
   .social-links {
     h4 {
       color: var(--text-primary);
     }
   }
-  
+
   .social-link {
-    background: rgba(102, 126, 234, 0.1);
-    color: #667eea;
-    border: 1px solid rgba(102, 126, 234, 0.3);
-    
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
     &:hover {
-      background: #667eea;
-      color: var(--text-primary);
+      background: #fff;
+      color: #000;
     }
+  }
+
+  .contact-icon {
+    background: #fff;
+    color: #000;
   }
 }
 
 .dark-mode .contact-form {
-  @include glass-effect(rgba(15, 15, 35, 0.9), var(--border-color));
-  
+  @include glass-effect(rgba(0, 0, 0, 0.9), var(--border-color));
+
   .form-group {
     label {
       color: var(--text-primary);
     }
   }
+
+  .submit-btn {
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+
+    &:hover {
+      background: #e0e0e0;
+      border-color: #e0e0e0;
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    }
+
+    &:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+  }
 }
 
 .dark-mode .form-group {
+
   input,
   textarea {
-    background: rgba(15, 15, 35, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    
+
     &:focus {
-      border-color: #667eea;
-      box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+      border-color: #fff;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
     }
-    
+
     &::placeholder {
       color: rgba(255, 255, 255, 0.6);
     }

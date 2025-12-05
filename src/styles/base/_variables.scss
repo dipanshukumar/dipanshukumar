@@ -1,22 +1,23 @@
 // Color Variables
-$primary-gradient: linear-gradient(160deg, #ea6666 0%, #9a4ba2 60%);
-$secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$primary-gradient: linear-gradient(160deg, #333333 0%, #000000 100%);
+$primary-gradient-dark: linear-gradient(160deg, #ffffff 0%, #cccccc 100%);
+$secondary-gradient: linear-gradient(135deg, #666666 0%, #333333 100%);
 $glass-bg: rgba(255, 255, 255, 0.95);
-$glass-border: rgba(255, 255, 255, 0.2);
-$text-primary: #333;
+$glass-border: rgba(0, 0, 0, 0.1);
+$text-primary: #000000;
 $text-white: #ffffff;
 $shadow-light: rgba(0, 0, 0, 0.1);
 $shadow-medium: rgba(0, 0, 0, 0.15);
 
 // Dark mode variables
-$dark-bg-primary: #0f0f23;
-$dark-bg-secondary: #1a1a2e;
-$dark-bg-tertiary: #16213e;
+$dark-bg-primary: #000000;
+$dark-bg-secondary: #111111;
+$dark-bg-tertiary: #222222;
 $dark-text-primary: #ffffff;
-$dark-text-secondary: #e2e8f0;
-$dark-text-muted: #94a3b8;
-$dark-border: rgba(255, 255, 255, 0.1);
-$dark-shadow: rgba(0, 0, 0, 0.3);
+$dark-text-secondary: #e0e0e0;
+$dark-text-muted: #999999;
+$dark-border: rgba(255, 255, 255, 0.2);
+$dark-shadow: rgba(255, 255, 255, 0.1);
 
 // Spacing
 $spacing-xs: 0.25rem;

@@ -11,13 +11,13 @@
   z-index: 1000;
   transition: all $transition-normal;
   box-shadow: 0 4px 30px $shadow-light;
-  
+
   &.scrolled {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 8px 40px $shadow-medium;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
-  
+
   .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -29,19 +29,19 @@
     width: 100%;
     box-sizing: border-box;
   }
-  
+
   .nav-logo .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
     @include gradient-text;
   }
-  
+
   .nav-menu {
     display: flex;
     gap: $spacing-xl;
     list-style: none;
   }
-  
+
   .nav-link {
     background: none;
     border: none;
@@ -52,18 +52,18 @@
     transition: color $transition-normal;
     padding: $spacing-sm $spacing-md;
     border-radius: $border-radius-md;
-    
+
     &:hover {
-      color: #667eea;
+      color: #666;
     }
   }
-  
+
   .nav-actions {
     display: flex;
     align-items: center;
     gap: $spacing-md;
   }
-  
+
   .theme-toggle {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -80,17 +80,17 @@
     font-family: inherit;
     z-index: 1001;
     position: relative;
-    
+
     &:hover {
       background: rgba(255, 255, 255, 0.3);
       transform: scale(1.1);
     }
-    
+
     &:focus {
       outline: none;
-      box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.5);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
     }
-    
+
     svg {
       width: 20px;
       height: 20px;
@@ -99,7 +99,7 @@
       color: inherit;
     }
   }
-  
+
   .nav-toggle {
     display: none;
     cursor: pointer;
@@ -111,30 +111,35 @@
 
 // Dark mode navbar
 .dark-mode .navbar {
-  background: rgba(15, 15, 35, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   border-bottom: 1px solid var(--border-color);
-  
+
   &.scrolled {
-    background: rgba(15, 15, 35, 0.98);
+    background: rgba(0, 0, 0, 0.98);
   }
-  
+
   .nav-link {
     color: var(--text-primary);
-    
+
     &:hover {
-      color: #667eea;
+      color: #e0e0e0;
+      background: rgba(255, 255, 255, 0.05);
     }
   }
-  
+
+  .nav-logo .logo-text {
+    @include gradient-text($primary-gradient-dark);
+  }
+
   .theme-toggle {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    
+
     &:hover {
       background: rgba(255, 255, 255, 0.2);
     }
-    
+
     svg {
       stroke: currentColor;
       fill: none;
@@ -149,7 +154,7 @@
     .nav-container {
       padding: 0 15px;
     }
-    
+
     .nav-menu {
       position: fixed;
       top: 70px;
@@ -166,13 +171,13 @@
       box-sizing: border-box;
       z-index: 999;
       pointer-events: none;
-      
+
       &.active {
         transform: translateY(0);
         opacity: 1;
         pointer-events: auto;
       }
-      
+
       .nav-link {
         pointer-events: auto;
         width: 100%;
@@ -180,18 +185,18 @@
         padding: $spacing-md;
         margin: $spacing-sm 0;
         border-radius: $border-radius-md;
-        
+
         &:hover {
           background: rgba(102, 126, 234, 0.1);
         }
       }
     }
-    
+
     .nav-toggle {
       display: block;
     }
   }
-  
+
   .dark-mode .navbar .nav-menu {
     background: rgba(15, 15, 35, 0.95);
     border-top: 1px solid var(--border-color);
@@ -204,11 +209,11 @@
     .nav-container {
       padding: 0 10px;
     }
-    
+
     .nav-logo .logo-text {
       font-size: 1.2rem;
     }
-    
+
     .nav-toggle {
       min-width: 44px;
       min-height: 44px;
@@ -216,7 +221,7 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .theme-toggle {
       min-width: 44px;
       min-height: 44px;

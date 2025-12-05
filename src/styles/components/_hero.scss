@@ -6,11 +6,11 @@
 .hero {
   min-height: 100vh;
   @include flex-center;
-  background: $primary-gradient;
-  color: $text-white;
+  background: #f8fafc; // Light background for light mode
+  color: $text-primary; // Dark text for light mode
   position: relative;
   overflow: hidden;
-  
+
   .hero-container {
     text-align: center;
     z-index: 1;
@@ -19,25 +19,41 @@
     margin: 0 auto;
     padding: 0 20px;
   }
-  
+
   .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: $spacing-md;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    
+    text-shadow: none;
+    color: $text-primary;
+
     .highlight {
-      color: #333;
+      background: linear-gradient(to right, #000000 20%, #666666 50%, #000000 80%);
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      letter-spacing: -0.02em;
       position: relative;
+      display: inline-block;
+      font-size: 1.1em;
+      animation: text-shimmer 3s linear infinite;
     }
   }
-  
+
+  @keyframes text-shimmer {
+    to {
+      background-position: 200% center;
+    }
+  }
+
   .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: $spacing-lg;
     opacity: 0.9;
   }
-  
+
   .hero-description {
     font-size: 1.1rem;
     margin-bottom: $spacing-xl;
@@ -46,65 +62,66 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .hero-buttons {
     display: flex;
     gap: $spacing-md;
     justify-content: center;
     margin-bottom: $spacing-xl;
   }
-  
+
   .btn {
     @include button-base;
-    
+
     &.btn-primary {
-      background: $primary-gradient;
+      background: #000000;
       color: $text-white;
-      @include shimmer-effect;
-      
+      border: 1px solid #333;
+
       &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        background: #333;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       }
     }
-    
+
     &.btn-secondary {
       background: transparent;
-      color: $text-white;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      
+      color: $text-primary;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+
       &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.5);
       }
     }
   }
-  
+
   .hero-social {
     display: flex;
     gap: $spacing-md;
     justify-content: center;
     margin-top: $spacing-xl;
   }
-  
+
   .social-link {
     width: 50px;
     height: 50px;
     @include flex-center;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
-    color: $text-white;
+    color: $text-primary;
     text-decoration: none;
     transition: all $transition-normal;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.1);
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
   }
-  
+
   .scroll-indicator {
     position: absolute;
     left: 50%;
@@ -113,34 +130,34 @@
     @include flex-center;
     flex-direction: column;
     gap: $spacing-xs;
-    color: $text-white;
+    color: $text-primary;
     cursor: pointer;
     transition: all $transition-normal;
     opacity: 0.8;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 25px;
     padding: $spacing-sm $spacing-md;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
     &:hover {
       opacity: 1;
       transform: translateX(-50%) translateY(-5px);
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
-    
+
     svg {
       animation: bounce 2s infinite;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
-    
+
     span {
       font-size: 0.8rem;
       font-weight: 500;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      text-shadow: none;
       letter-spacing: 0.5px;
     }
   }
@@ -148,72 +165,81 @@
 
 // Dark mode hero
 .dark-mode .hero {
-  background: linear-gradient(135deg, $dark-bg-primary 0%, $dark-bg-secondary 50%, $dark-bg-tertiary 100%);
+  background: #000000;
   color: var(--text-primary);
-  
+
   .hero-title {
+    color: var(--text-primary);
+
     .highlight {
-      color: #667eea;
-      text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+      background: linear-gradient(to right, #ffffff 20%, #aaaaaa 50%, #ffffff 80%);
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      animation: text-shimmer 3s linear infinite;
     }
   }
-  
+
   .hero-subtitle {
     color: var(--text-secondary);
   }
-  
+
   .hero-description {
     color: var(--text-muted);
   }
-  
+
   .btn {
     &.btn-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: var(--text-primary);
-      
+      background: #ffffff;
+      color: #000000;
+
       &:hover {
-        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        background: #e0e0e0;
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
       }
     }
-    
+
     &.btn-secondary {
       color: var(--text-primary);
       border: 2px solid var(--border-color);
-      
+
       &:hover {
         background: rgba(255, 255, 255, 0.05);
         border-color: rgba(255, 255, 255, 0.3);
       }
     }
   }
-  
+
   .social-link {
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
-    
+
     &:hover {
       background: rgba(255, 255, 255, 0.1);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
   }
-  
+
   .scroll-indicator {
     color: var(--text-primary);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    
+
     &:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.2);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     }
-    
+
     svg {
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
     }
-    
+
     span {
       color: var(--text-secondary);
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
@@ -225,7 +251,7 @@
 @media (max-width: 1024px) and (max-height: 700px) {
   .hero {
     min-height: 120vh;
-    
+
     .scroll-indicator {
       bottom: -6rem;
     }
@@ -235,27 +261,27 @@
 @include responsive(md) {
   .hero {
     padding: $spacing-2xl 0;
-    
+
     .hero-container {
       padding: 0 15px;
     }
-    
+
     .hero-title {
       font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
       font-size: 1.2rem;
     }
-    
+
     .hero-buttons {
       flex-direction: column;
       align-items: center;
     }
-    
+
     .scroll-indicator {
       bottom: -6rem;
-      
+
       span {
         font-size: 0.8rem;
       }
@@ -266,27 +292,27 @@
 @include responsive(sm) {
   .hero {
     padding: 7rem 0;
-    
+
     .hero-container {
       padding: 0 10px;
     }
-    
+
     .hero-title {
       font-size: 2rem;
     }
-    
+
     .hero-subtitle {
       font-size: 1.1rem;
     }
-    
+
     .hero-description {
       font-size: 1rem;
     }
-    
+
     .scroll-indicator {
       bottom: -5rem;
       opacity: 0.9;
-      
+
       span {
         font-size: 0.75rem;
       }
