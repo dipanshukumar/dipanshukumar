@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router} from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -44,6 +45,7 @@ function App() {
             <Contact />
           </main>
           <Footer />
+          <SpeedInsights />
         </div>
       </Router>
     </ThemeProvider>
