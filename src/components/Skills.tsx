@@ -1,49 +1,56 @@
-import { motion } from "framer-motion";
+'use client';
 
-const Skills = () => {
-  const skillCategories = [
+import React from "react";
+import { motion } from "framer-motion";
+import { SkillCategory } from "../types";
+
+const Skills: React.FC = () => {
+  const skillCategories: SkillCategory[] = [
     {
-      category: "Languages & Frameworks",
+      category: "Frontend & Architecture",
       skills: [
+        { name: "React.js", level: 95 },
+        { name: "Next.js", level: 90 },
+        { name: "TypeScript", level: 90 },
         { name: "JavaScript (ES6+)", level: 95 },
-        { name: "TypeScript", level: 70 },
-        { name: "React.js", level: 90 },
-        { name: "Next.js", level: 70 },
-        { name: "Angular", level: 55 },
-        { name: "Node.js", level: 50 },
-        { name: "React Native", level: 40 },
+        { name: "Redux Toolkit", level: 90 },
+        { name: "Micro-Frontends & Module Federation", level: 85 },
+        { name: "SSR & Core Web Vitals", level: 90 },
+        { name: "Angular", level: 70 },
       ],
     },
     {
-      category: "Frontend & Styling",
+      category: "Backend & Databases",
       skills: [
-        { name: "HTML/CSS", level: 95 },
+        { name: "Node.js", level: 85 },
+        { name: "Express.js", level: 85 },
+        { name: "REST APIs & Integration", level: 90 },
+        { name: "PostgreSQL", level: 80 },
+        { name: "Java & Spring Boot", level: 75 },
+        { name: "MySQL & MongoDB", level: 75 },
+      ],
+    },
+    {
+      category: "UI, Styling & Design",
+      skills: [
+        { name: "HTML5 / CSS3", level: 95 },
         { name: "SCSS", level: 95 },
-        { name: "Bootstrap", level: 90 },
-        { name: "JSX", level: 90 },
-        { name: "Material UI", level: 90 },
-        { name: "Tailwind CSS", level: 80 },
-      ],
-    },
-    {
-      category: "Tools & Platforms",
-      skills: [
-        { name: "Git/GitHub", level: 90 },
-        { name: "AWS", level: 50 },
-        { name: "Webpack", level: 70 },
+        { name: "Tailwind CSS", level: 90 },
+        { name: "Material UI & Ant Design", level: 90 },
+        { name: "Responsive UI & Accessibility", level: 95 },
         { name: "Figma", level: 90 },
-        { name: "GitHub Actions", level: 55 },
-        { name: "Redux Toolkit", level: 80 },
       ],
     },
     {
-      category: "Testing & Methodologies",
+      category: "Testing, Cloud & DevOps",
       skills: [
-        { name: "Jest", level: 70 },
-        { name: "Cypress", level: 70 },
-        { name: "React Testing Library", level: 70 },
-        { name: "Agile/Scrum", level: 80 },
-        { name: "Babel", level: 70 },
+        { name: "Jest & React Testing Library", level: 90 },
+        { name: "Cypress", level: 85 },
+        { name: "Git / GitHub", level: 90 },
+        { name: "Webpack & Babel", level: 85 },
+        { name: "AWS S3", level: 80 },
+        { name: "GitHub Actions & CI/CD", level: 80 },
+        { name: "Agile / Scrum", level: 90 },
       ],
     },
   ];
@@ -102,42 +109,10 @@ const Skills = () => {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          className="skills-summary"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3>What I Bring to the Table</h3>
-          <div className="summary-grid">
-            <div className="summary-item">
-              <h4>Modern Web Development</h4>
-              <p>
-                Expert in React.js, JavaScript, Next.js, HTML, CSS, SCSS with
-                focus on scalable applications.
-              </p>
-            </div>
-            <div className="summary-item">
-              <h4>Agile Leadership</h4>
-              <p>
-                Leading agile processes and implementing reusable, scalable
-                codebases.
-              </p>
-            </div>
-            <div className="summary-item">
-              <h4>Client Delivery</h4>
-              <p>
-                Delivered solutions for major clients including Telstra and
-                Government projects.
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
 };
 
 export default Skills;
+

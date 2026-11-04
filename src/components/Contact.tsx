@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import {
-  Email,
-  Phone,
-  LocationOn,
-  Send,
-  GitHub,
-  LinkedIn,
-} from "@mui/icons-material";
-import emailjs from "emailjs-com";
-import XIcon from "./XIcon";
+'use client';
 
-const Contact = () => {
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Email from "@mui/icons-material/Email";
+import Phone from "@mui/icons-material/Phone";
+import LocationOn from "@mui/icons-material/LocationOn";
+import Send from "@mui/icons-material/Send";
+import GitHub from "@mui/icons-material/GitHub";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import emailjs, { init, send } from "emailjs-com";
+import XIcon from "./XIcon";
+import { ContactInfoItem, SocialLink } from "../types";
+
+const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,14 +20,25 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(""); // 'success' or 'error'
+  const [submitStatus, setSubmitStatus] = useState<"" | "success" | "error">("");
 
-  // Initialize EmailJS
   useEffect(() => {
-    emailjs.init("T69-yhXusjlYu7_FJ");
+    try {
+      if (typeof init === "function") {
+        init("T69-yhXusjlYu7_FJ");
+      } else if (typeof emailjs?.init === "function") {
+        emailjs.init("T69-yhXusjlYu7_FJ");
+      } else if (typeof (emailjs as any)?.default?.init === "function") {
+        (emailjs as any).default.init("T69-yhXusjlYu7_FJ");
+      }
+    } catch (err) {
+      console.warn("Failed to initialize EmailJS:", err);
+    }
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -34,7 +46,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("");
@@ -48,11 +60,22 @@ const Contact = () => {
         to_email: "dipanshukumar93@gmail.com",
       };
 
-      const result = await emailjs.send(
-        "service_vfjnfxp", // EmailJS service ID
-        "template_fxouafx", // EmailJS template ID
+      const sendFn =
+        typeof send === "function"
+          ? send
+          : typeof emailjs?.send === "function"
+          ? emailjs.send
+          : (emailjs as any)?.default?.send;
+
+      if (typeof sendFn !== "function") {
+        throw new Error("Email service is unavailable");
+      }
+
+      const result = await sendFn(
+        "service_vfjnfxp",
+        "template_fxouafx",
         templateParams,
-        "T69-yhXusjlYu7_FJ" // EmailJS public key
+        "T69-yhXusjlYu7_FJ"
       );
 
       if (result.status === 200) {
@@ -67,7 +90,7 @@ const Contact = () => {
     }
   };
 
-  const contactInfo = [
+  const contactInfo: ContactInfoItem[] = [
     {
       icon: <Email sx={{ fontSize: 24 }} />,
       title: "Email",
@@ -83,12 +106,12 @@ const Contact = () => {
     {
       icon: <LocationOn sx={{ fontSize: 24 }} />,
       title: "Location",
-      value: "Ramgarh, Jharkhand, India",
+      value: "Bengaluru, Karnataka, India",
       link: null,
     },
   ];
 
-  const socialLinks = [
+  const socialLinks: SocialLink[] = [
     {
       name: "GitHub",
       url: "https://github.com/dipanshukumar",
@@ -118,7 +141,7 @@ const Contact = () => {
         >
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-subtitle">
-            Let's work together on your next project
+            Let&apos;s work together on your next project
           </p>
         </motion.div>
 
@@ -130,9 +153,9 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3>Let's Connect</h3>
+            <h3>Let&apos;s Connect</h3>
             <p>
-              I'm always interested in hearing about new opportunities and
+              I&apos;m always interested in hearing about new opportunities and
               exciting projects. Whether you have a question or just want to say
               hi, feel free to reach out!
             </p>
@@ -245,7 +268,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows="5"
+                  rows={5}
                   placeholder="Tell me about your project..."
                 />
               </div>

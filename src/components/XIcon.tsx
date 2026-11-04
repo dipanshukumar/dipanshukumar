@@ -1,6 +1,11 @@
 import React from "react";
 
-const XIcon = ({ size = 24, className = "", ...props }) => {
+interface XIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number;
+  className?: string;
+}
+
+const XIcon: React.FC<XIconProps> = ({ size = 24, className = "", ...props }) => {
   return (
     <svg
       width={size}
@@ -16,3 +21,4 @@ const XIcon = ({ size = 24, className = "", ...props }) => {
 };
 
 export default XIcon;
+

@@ -1,13 +1,24 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Visibility } from "@mui/icons-material";
+'use client';
 
-const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Visibility from "@mui/icons-material/Visibility";
+import { Project } from "../types";
+
+interface ProjectsProps {
+  initialProjects?: Project[];
+}
+
+const Projects: React.FC<ProjectsProps> = ({ initialProjects }) => {
+  const [projects, setProjects] = useState<Project[]>(initialProjects || []);
+  const [loading, setLoading] = useState<boolean>(!initialProjects);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (initialProjects && initialProjects.length > 0) {
+      return;
+    }
+
     const fetchProjects = async () => {
       try {
         const response = await fetch("/data/projects.json");
@@ -17,14 +28,14 @@ const Projects = () => {
         const data = await response.json();
         setProjects(data.projects);
         setLoading(false);
-      } catch (err) {
-        setError(err.message);
+      } catch (err: any) {
+        setError(err.message || "Failed to load projects");
         setLoading(false);
       }
     };
 
     fetchProjects();
-  }, []);
+  }, [initialProjects]);
 
   if (loading) {
     return (
@@ -76,7 +87,7 @@ const Projects = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {projects.map((project, index) => (
+          {Array.isArray(projects) && projects.map((project, index) => (
             <motion.div
               key={project.id}
               className={`project-card ${project.featured ? "featured" : ""}`}
@@ -112,7 +123,7 @@ const Projects = () => {
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="project-technologies">
-                  {project.technologies.map((tech) => (
+                  {Array.isArray(project.technologies) && project.technologies.map((tech) => (
                     <span key={tech} className="technology-tag">
                       {tech}
                     </span>
@@ -136,7 +147,7 @@ const Projects = () => {
             className="btn btn-primary"
             aria-label="Navigate to contact section to discuss project collaboration"
           >
-            Let's Talk
+            Let&apos;s Talk
           </a>
         </motion.div>
       </div>

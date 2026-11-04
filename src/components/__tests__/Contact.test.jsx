@@ -11,12 +11,18 @@ vi.mock("framer-motion", () => ({
 }));
 
 // Mock emailjs
-vi.mock("emailjs-com", () => ({
-    default: {
-        init: vi.fn(),
-        send: vi.fn().mockResolvedValue({ status: 200 }),
-    },
-}));
+vi.mock("emailjs-com", () => {
+    const mockInit = vi.fn();
+    const mockSend = vi.fn().mockResolvedValue({ status: 200 });
+    return {
+        init: mockInit,
+        send: mockSend,
+        default: {
+            init: mockInit,
+            send: mockSend,
+        },
+    };
+});
 
 describe("Contact Component", () => {
     it("renders contact information", () => {

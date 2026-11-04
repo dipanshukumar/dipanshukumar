@@ -1,14 +1,15 @@
-import {
-  KeyboardArrowDown,
-  GitHub,
-  LinkedIn,
-  Email,
-} from "@mui/icons-material";
+'use client';
 
-const Hero = () => {
-  const scrollToSection = (sectionId) => {
+import React from "react";
+import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
+import GitHub from "@mui/icons-material/GitHub";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import Email from "@mui/icons-material/Email";
+
+const Hero: React.FC = () => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
+    if (element && typeof element.scrollIntoView === "function") {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -18,19 +19,19 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Dipanshu Kumar</span>
+            Hi, I&apos;m <span className="highlight">Dipanshu Kumar</span>
           </h1>
 
           <h2 className="hero-subtitle">
-            Senior Frontend Developer & Software Engineer
+            Senior Software Engineer | Senior Frontend & Fullstack Engineer
           </h2>
 
           <p className="hero-description">
-            I am an experienced frontend developer and software engineer
-            specializing in React.js, Next.js, TypeScript, JavaScript, HTML5,
-            CSS3, and modern frontend technologies. Passionate about creating
-            responsive, accessible, and high-performance web applications with
-            excellent user experience.
+            Senior Software Engineer with 7+ years of experience delivering
+            enterprise web applications with React.js, Next.js, TypeScript,
+            JavaScript, Redux, Node.js, Express.js, Java, and Spring Boot.
+            Skilled in micro-frontends, server-side rendering (SSR), REST API
+            integration, performance optimization, and automated testing.
           </p>
 
           <div className="hero-buttons">

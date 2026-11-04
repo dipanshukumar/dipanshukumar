@@ -1,28 +1,31 @@
 # Dipanshu Kumar - Senior Software Engineer Portfolio
 
-A beautiful, responsive portfolio website built with React, Vite, and Framer Motion. Features smooth animations, modern design, and excellent user experience showcasing my expertise in React.js, Next.js, and modern web technologies.
+A beautiful, responsive portfolio website built with Next.js 15 (App Router), TypeScript, SCSS, and Framer Motion. Features smooth animations, dark/light theme, modern design, and excellent user experience showcasing my expertise in React.js, Next.js, TypeScript, and modern web technologies.
 
 ## 🚀 Features
 
 - **Modern Design**: Clean, professional design with gradient backgrounds and smooth animations
+- **Next.js 15 App Router**: Server-rendered components, optimized metadata API, and fast route handling
+- **TypeScript**: Complete type safety across all components and models
 - **Responsive**: Fully responsive design that works on all devices
 - **Smooth Animations**: Powered by Framer Motion for engaging user interactions
-- **Fast Performance**: Built with Vite for optimal performance
-- **SEO Optimized**: Proper meta tags and structured content
-- **Accessible**: WCAG compliant with proper focus management
-- **Contact Form**: Functional contact form with validation
-- **Project Showcase**: Beautiful project cards with filtering
+- **Fast Performance**: Built with Next.js and optimized static page generation
+- **SEO Optimized**: Complete metadata, Open Graph, Twitter Cards, canonical URL, and Schema.org JSON-LD
+- **Accessible**: WCAG compliant with semantic HTML and focus states
+- **Contact Form**: Functional contact form powered by EmailJS
+- **Project Showcase**: Project cards with live demo links and featured tags
 - **Skills Display**: Animated skill progress bars
-- **Social Links**: Integrated social media links
+- **Dark/Light Mode**: Persistent theme toggle
 
 ## 🛠️ Tech Stack
 
-- **React 18** - Modern React with hooks
-- **Vite** - Fast build tool and development server
+- **Next.js 15** - React 19 App Router framework
+- **TypeScript** - Type safety and maintainability
 - **Framer Motion** - Smooth animations and transitions
-- **Lucide React** - Beautiful icons
-- **React Router DOM** - Client-side routing
-- **CSS3** - Custom styling with modern features
+- **Material UI Icons & Emotion** - Accessible iconography
+- **SASS / SCSS** - Modular stylesheet architecture with custom variables and mixins
+- **EmailJS** - Client-side contact message delivery
+- **Vercel Analytics & Speed Insights** - Real user performance monitoring
 
 ## 📦 Installation
 
@@ -42,7 +45,7 @@ npm install
 npm run dev
 ```
 
-4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## 🎨 Customization
 

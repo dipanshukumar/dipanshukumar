@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
-import { Download } from "@mui/icons-material";
+'use client';
 
-const About = () => {
+import React from "react";
+import { motion } from "framer-motion";
+import Download from "@mui/icons-material/Download";
+
+const About: React.FC = () => {
   const downloadResume = () => {
-    // Create a link to download the resume
     const link = document.createElement("a");
-    link.href = "/Dipanshu_Kumar.pdf";
+    link.href = "/Dipanshu_Kumar_Resume_Nov_04_2026.pdf";
     link.download = "Dipanshu_Resume.pdf";
     link.target = "_blank";
     document.body.appendChild(link);
@@ -42,30 +44,29 @@ const About = () => {
           >
             <h3>Who I Am</h3>
             <p>
-              I am a Senior Frontend Developer and Software Engineer with more
-              than 6 years of experience in developing modern frontend
-              applications and responsive web interfaces. I specialize in
-              React.js, JavaScript, HTML5, CSS3, Next.js and TypeScript, with a
-              strong focus on creating responsive, accessible, and
-              high-performance frontend solutions with excellent user
-              experience.
+              I am a Senior Software Engineer with more than 7 years of
+              experience delivering enterprise web applications and high-performance
+              user interfaces. I specialize in React.js, Next.js, TypeScript,
+              JavaScript, Redux, Node.js, Express.js, Java, and Spring Boot, with a
+              strong focus on micro-frontends, server-side rendering (SSR),
+              REST API integration, performance optimization, and automated testing.
             </p>
 
             <p>
-              Recently worked at Smart Working Solutions, I lead agile processes
-              and implement reusable, scalable codebases. My journey includes
-              delivering optimized solutions for clients like London Stone,
-              Telstra, Extramarks, many more Indian Clients, and a Government's
-              Project GEM.
+              Throughout my journey, I have contributed to mission-critical
+              solutions for clients like Schneider Electric, Telstra, London Stone,
+              Extramarks, Sony UAE, and the Government e-Marketplace (GeM)—helping
+              achieve 40% faster page loads, 40% fewer reported UI bugs, and 25%
+              improvements in Core Web Vitals and page speed.
             </p>
 
             <dl className="about-stats">
               <div className="stat">
-                <dt className="stat-number">6+</dt>
+                <dt className="stat-number">7+</dt>
                 <dd className="stat-label">Years of Experience</dd>
               </div>
               <div className="stat">
-                <dt className="stat-number">10+</dt>
+                <dt className="stat-number">15+</dt>
                 <dd className="stat-label">Projects Completed</dd>
               </div>
               <div className="stat">

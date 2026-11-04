@@ -1,8 +1,18 @@
-import { useState, useEffect } from "react";
-import { Menu, Close, LightMode, DarkMode } from "@mui/icons-material";
+'use client';
+
+import React, { useState, useEffect } from "react";
+import Menu from "@mui/icons-material/Menu";
+import Close from "@mui/icons-material/Close";
+import LightMode from "@mui/icons-material/LightMode";
+import DarkMode from "@mui/icons-material/DarkMode";
 import { useTheme } from "../context/ThemeContext";
 
-const Navbar = () => {
+interface NavItem {
+  id: string;
+  label: string;
+}
+
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
@@ -12,20 +22,19 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    // Use passive listener for better performance and to avoid warnings
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
+    if (element && typeof element.scrollIntoView === "function") {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setIsOpen(false);
   };
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
@@ -88,3 +97,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

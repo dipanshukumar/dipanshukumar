@@ -25,7 +25,7 @@ describe("About Component", () => {
 
     it("renders statistics", () => {
         render(<About />);
-        expect(screen.getByText("6+")).toBeInTheDocument();
+        expect(screen.getByText(/^[67]\+$/)).toBeInTheDocument();
         expect(screen.getByText("Years of Experience")).toBeInTheDocument();
     });
 

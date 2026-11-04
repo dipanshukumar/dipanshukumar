@@ -1,11 +1,17 @@
-import { motion } from "framer-motion";
-import { GitHub, LinkedIn, Favorite } from "@mui/icons-material";
-import XIcon from "./XIcon";
+'use client';
 
-const Footer = () => {
+import React from "react";
+import { motion } from "framer-motion";
+import GitHub from "@mui/icons-material/GitHub";
+import LinkedIn from "@mui/icons-material/LinkedIn";
+import Favorite from "@mui/icons-material/Favorite";
+import XIcon from "./XIcon";
+import { SocialLink } from "../types";
+
+const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
+  const socialLinks: SocialLink[] = [
     {
       name: "GitHub",
       url: "https://github.com/dipanshukumar",
@@ -36,9 +42,9 @@ const Footer = () => {
           <div className="footer-section">
             <h3>Dipanshu Kumar</h3>
             <p>
-              I am a Senior Frontend Developer and Software Engineer passionate
-              about creating responsive, accessible, and high-performance web
-              applications with amazing user experience.
+              Senior Software Engineer passionate about creating responsive,
+              accessible, high-performance web applications and enterprise
+              solutions with modern frontend and fullstack technologies.
             </p>
           </div>
 
@@ -105,9 +111,9 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <div className="footer-line"></div>
-          <p className="copyright">
+          <p className="copyright" suppressHydrationWarning>
             © {currentYear} Dipanshu Kumar. Made with{" "}
-            <Favorite sx={{ fontSize: 16 }} className="heart-icon" /> and React.
+            <Favorite sx={{ fontSize: 16 }} className="heart-icon" /> and Next.js.
           </p>
         </motion.div>
       </div>
@@ -116,3 +122,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
