@@ -1,4 +1,4 @@
-@import '../base/variables';
+@use '../base/variables' as *;
 
 // Glass effect mixin
 @mixin glass-effect($bg: $glass-bg, $border: $glass-border) {
@@ -42,7 +42,7 @@
 @mixin shimmer-effect {
   position: relative;
   overflow: hidden;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -53,7 +53,7 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     transition: left $transition-slow;
   }
-  
+
   &:hover::before {
     left: 100%;
   }
@@ -61,13 +61,27 @@
 
 // Responsive mixin
 @mixin responsive($breakpoint) {
-  @if $breakpoint == sm {
-    @media (max-width: $breakpoint-sm) { @content; }
-  } @else if $breakpoint == md {
-    @media (max-width: $breakpoint-md) { @content; }
-  } @else if $breakpoint == lg {
-    @media (max-width: $breakpoint-lg) { @content; }
-  } @else if $breakpoint == xl {
-    @media (max-width: $breakpoint-xl) { @content; }
+  @if $breakpoint ==sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==xl {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
   }
 }

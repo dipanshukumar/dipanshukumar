@@ -1,20 +1,20 @@
 // Import base styles
-@import 'base/variables';
-@import 'base/reset';
-@import 'base/animations';
+@use 'base/variables' as *;
+@use 'base/reset' as *;
+@use 'base/animations' as *;
 
 // Import utilities
-@import 'utils/mixins';
+@use 'utils/mixins' as *;
 
 // Import components
-@import 'components/loading';
-@import 'components/navbar';
-@import 'components/hero';
-@import 'components/about';
-@import 'components/skills';
-@import 'components/projects';
-@import 'components/contact';
-@import 'components/footer';
+@use 'components/loading';
+@use 'components/navbar';
+@use 'components/hero';
+@use 'components/about';
+@use 'components/skills';
+@use 'components/projects';
+@use 'components/contact';
+@use 'components/footer';
 
 // Accessibility styles
 // Accessibility styles

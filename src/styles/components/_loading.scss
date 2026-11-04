@@ -1,6 +1,6 @@
-@import '../base/variables';
-@import '../utils/mixins';
-@import '../base/animations';
+@use '../base/variables' as *;
+@use '../utils/mixins' as *;
+@use '../base/animations' as *;
 
 // Loading Screen - Light Mode (Default)
 .loading-screen {
