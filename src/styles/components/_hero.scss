@@ -4,7 +4,7 @@
 
 // Hero Section
 .hero {
-  min-height: 100vh;
+  min-height: 90vh;
   @include flex-center;
   background: #f8fafc; // Light background for light mode
   color: $text-primary; // Dark text for light mode
@@ -140,6 +140,7 @@
     border-radius: 25px;
     padding: $spacing-sm $spacing-md;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: none;
 
     &:hover {
       opacity: 1;
@@ -318,4 +319,29 @@
       }
     }
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure anchor buttons retain your button layouts */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+
+  .btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.scroll-indicator {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }

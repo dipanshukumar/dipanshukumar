@@ -1,5 +1,3 @@
-'use client';
-
 import React from "react";
 import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import GitHub from "@mui/icons-material/GitHub";
@@ -7,13 +5,6 @@ import LinkedIn from "@mui/icons-material/LinkedIn";
 import Email from "@mui/icons-material/Email";
 
 const Hero: React.FC = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element && typeof element.scrollIntoView === "function") {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section id="home" className="hero" role="banner" aria-label="Hero Section">
       <div className="hero-container">
@@ -35,20 +26,21 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="hero-buttons">
-            <button
+            {/* Converted to native anchors for structural scroll navigation */}
+            <a
+              href="#projects"
               className="btn btn-primary"
-              onClick={() => scrollToSection("projects")}
               aria-label="View my projects"
             >
               View My Work
-            </button>
-            <button
+            </a>
+            <a
+              href="#contact"
               className="btn btn-secondary"
-              onClick={() => scrollToSection("contact")}
               aria-label="Get in touch"
             >
               Get In Touch
-            </button>
+            </a>
           </div>
 
           <nav className="hero-social" aria-label="Social Media Links">
@@ -80,14 +72,15 @@ const Hero: React.FC = () => {
           </nav>
         </div>
 
-        <button
+        {/* Converted to a structural anchor for clean page navigation */}
+        <a
+          href="#about"
           className="scroll-indicator"
-          onClick={() => scrollToSection("about")}
           aria-label="Scroll to about section"
         >
           <KeyboardArrowDown sx={{ fontSize: 24 }} />
           <span>Scroll Down</span>
-        </button>
+        </a>
       </div>
     </section>
   );

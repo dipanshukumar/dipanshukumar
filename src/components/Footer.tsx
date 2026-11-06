@@ -1,7 +1,4 @@
-'use client';
-
 import React from "react";
-import { motion } from "framer-motion";
 import GitHub from "@mui/icons-material/GitHub";
 import LinkedIn from "@mui/icons-material/LinkedIn";
 import Favorite from "@mui/icons-material/Favorite";
@@ -32,13 +29,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <motion.div
-          className="footer-content"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        {/* Removed motion.div wrappers for lean semantic layout components */}
+        <div className="footer-content footer-fade-up">
           <div className="footer-section">
             <h3>Dipanshu Kumar</h3>
             <p>
@@ -82,44 +74,32 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h4>Connect</h4>
             <div className="footer-social">
-              {socialLinks.map((social, index) => (
-                <motion.a
+              {socialLinks.map((social) => (
+                <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-link"
+                  className="social-link social-icon-animate"
                   aria-label={`Visit ${social.name} profile`}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.1 }}
                 >
                   {social.icon}
-                </motion.a>
+                </a>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="footer-bottom"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
+        <div className="footer-bottom footer-fade-in">
           <div className="footer-line"></div>
-          <p className="copyright" suppressHydrationWarning>
+          <p className="copyright">
             © {currentYear} Dipanshu Kumar. Made with{" "}
             <Favorite sx={{ fontSize: 16 }} className="heart-icon" /> and Next.js.
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
 };
 
 export default Footer;
-

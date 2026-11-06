@@ -1,20 +1,8 @@
-'use client';
-
 import React from "react";
-import { motion } from "framer-motion";
-import Download from "@mui/icons-material/Download";
+import Image from "next/image";
+import DownloadButton from "./DownloadButton"; // Import the client button
 
 const About: React.FC = () => {
-  const downloadResume = () => {
-    const link = document.createElement("a");
-    link.href = "/Dipanshu_Kumar_Resume_Nov_04_2026.pdf";
-    link.download = "Dipanshu_Resume.pdf";
-    link.target = "_blank";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section
       id="about"
@@ -23,25 +11,14 @@ const About: React.FC = () => {
       aria-label="About Section"
     >
       <div className="container">
-        <motion.header
-          className="section-header"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        {/* Removed Framer Motion wrappers for raw semantic HTML elements */}
+        <header className="section-header">
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">Get to know me better</p>
-        </motion.header>
+        </header>
 
         <div className="about-content">
-          <motion.article
-            className="about-text"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <article className="about-text">
             <h3>Who I Am</h3>
             <p>
               I am a Senior Software Engineer with more than 7 years of
@@ -70,36 +47,27 @@ const About: React.FC = () => {
                 <dd className="stat-label">Projects Completed</dd>
               </div>
               <div className="stat">
-                <dt className="stat-label">Senior Software Engineer</dt>
+                <dt className="stat-number">Senior Software Engineer</dt>
               </div>
             </dl>
 
-            <button
-              className="btn btn-primary"
-              onClick={downloadResume}
-              aria-label="Download Resume"
-            >
-              <Download sx={{ fontSize: 20 }} />
-              Download Resume
-            </button>
-          </motion.article>
+            {/* Interactive button isolated into a Client Component */}
+            <DownloadButton />
+          </article>
 
-          <motion.figure
-            className="about-image"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
+          <figure className="about-image">
             <div className="profile-image-container">
-              <img
+              <Image
                 src="/images/profile-photo.jpg"
                 alt="Dipanshu Kumar - Senior Software Engineer"
+                width={500}
+                height={500}
                 className="profile-image"
-                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={false} // Set to true if this section sits above the fold
               />
             </div>
-          </motion.figure>
+          </figure>
         </div>
       </div>
     </section>
