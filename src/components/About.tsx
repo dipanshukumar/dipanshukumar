@@ -24,7 +24,7 @@ const About: React.FC = () => {
               I am a Senior Software Engineer with more than 7 years of
               experience delivering enterprise web applications and high-performance
               user interfaces. I specialize in React.js, Next.js, TypeScript,
-              JavaScript, Redux, Node.js, Express.js, Java, and Spring Boot, with a
+              JavaScript, Redux, Node.js, Express.js, with a
               strong focus on micro-frontends, server-side rendering (SSR),
               REST API integration, performance optimization, and automated testing.
             </p>
