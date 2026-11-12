@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
           </h2>
 
           <p className="hero-description">
-            Senior Software Engineer with 7+ years of experience delivering
+            Senior Software Engineer with 7 years of experience delivering
             enterprise web applications with React.js, Next.js, TypeScript,
             JavaScript, Redux, Node.js, Express.js.
             Skilled in micro-frontends, server-side rendering (SSR), REST API

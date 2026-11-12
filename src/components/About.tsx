@@ -47,7 +47,7 @@ const About: React.FC = () => {
                 <dd className="stat-label">Projects Completed</dd>
               </div>
               <div className="stat">
-                <dt className="stat-number">Senior Software Engineer</dt>
+                <dt className="stat-number">Senior Full-Stack Engineer</dt>
               </div>
             </dl>
 
@@ -64,7 +64,7 @@ const About: React.FC = () => {
                 height={500}
                 className="profile-image"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority={false} // Set to true if this section sits above the fold
+                priority
               />
             </div>
           </figure>
